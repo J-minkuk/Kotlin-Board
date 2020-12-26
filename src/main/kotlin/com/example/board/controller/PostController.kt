@@ -1,8 +1,8 @@
 package com.example.board.controller
 
-import com.example.board.domain.Post
-import com.example.board.domain.PostRepository
 import com.example.board.model.WritePostParam
+import com.example.board.model.PostResponseVo
+import com.example.board.service.PostService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.*
 class PostController {
 
     @Autowired
-    private lateinit var postRepository: PostRepository
+    private lateinit var postService: PostService
 
     @GetMapping("")
-    fun getPosts(): Any {
-        return postRepository.findAll()
+    fun getPosts(): List<PostResponseVo> {
+        return postService.getPosts()
     }
 
     @PostMapping("")
     fun writePost(@RequestBody param: WritePostParam) {
-        postRepository.save(param.toPost())
+        postService.write(param)
     }
 
 }
