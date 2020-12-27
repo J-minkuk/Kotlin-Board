@@ -1,8 +1,8 @@
 package com.example.board.service
 
 import com.example.board.domain.PostRepository
-import com.example.board.model.WritePostParam
 import com.example.board.model.PostResponseVo
+import com.example.board.model.WritePostParam
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -19,7 +19,7 @@ class PostServiceImpl : PostService {
     private lateinit var postRepository: PostRepository
 
     override fun getPosts(): List<PostResponseVo> {
-        return postRepository.findAll().map { post -> post.toPostResponseVo() }
+        return postRepository.findAll().map { post -> PostResponseVo.from(post) }
     }
 
     override fun write(param: WritePostParam) {

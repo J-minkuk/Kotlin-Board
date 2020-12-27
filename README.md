@@ -10,6 +10,9 @@ var a: Int = 1
 var a: Int? = 1 // java의 Integer
 ```
 
+## companion object
+코틀린에는 static 키워드가 존재하지 않는다. 대신 companion object가 존재한다.
+
 ## 함수
 ```kotlin
 fun 함수명(인자1: 타입, 인자2: 타입 ...): 반환 타입 {

@@ -1,6 +1,5 @@
 package com.example.board.domain
 
-import com.example.board.model.PostResponseVo
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
@@ -21,8 +20,4 @@ data class Post(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0
-
-    fun toPostResponseVo(): PostResponseVo {
-        return PostResponseVo(this.title, this.content, this.author)
-    }
 }
