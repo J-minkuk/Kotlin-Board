@@ -1,4 +1,4 @@
-package com.example.board.domain
+package com.example.board.posts.domain
 
 import org.springframework.data.repository.CrudRepository
 
@@ -8,5 +8,5 @@ import org.springframework.data.repository.CrudRepository
  * @author Hardy(조민국) / dev.mingood@dreamus.io
  * @since 2020. 12. 26
  */
-interface PostRepository : CrudRepository<Post, Long> {
+interface PostsRepository : CrudRepository<Posts, Long> {
 }

@@ -1,9 +1,6 @@
-package com.example.board.domain
+package com.example.board.posts.domain
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 /**
  * 설명 :
@@ -12,12 +9,17 @@ import javax.persistence.Id
  * @since 2020. 12. 26
  */
 @Entity
-data class Post(
+data class Posts(
+    @Column(nullable = false)
     var title: String,
+
+    @Column(nullable = false)
     var author: String,
-    var content: String
-) {
+
+    @Column(columnDefinition = "TEXT", nullable = false)
+    var content: String,
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0
-}
+)

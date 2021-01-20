@@ -1,6 +1,6 @@
-package com.example.board.model
+package com.example.board.posts.model
 
-import com.example.board.domain.Post
+import com.example.board.posts.domain.Posts
 
 /**
  * 설명 :
@@ -13,8 +13,8 @@ data class WritePostParam(
     var content: String,
     var author: String,
 ) {
-    fun toPost(): Post {
-        return Post(
+    fun toEntity(): Posts {
+        return Posts(
             title = title,
             content = content,
             author = author
