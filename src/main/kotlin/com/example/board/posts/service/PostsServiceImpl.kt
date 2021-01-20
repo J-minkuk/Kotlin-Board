@@ -21,12 +21,13 @@ class PostsServiceImpl : PostsService {
 
     @Transactional(readOnly = true)
     override fun getPosts(): List<PostResponseVo> {
-        return postsRepository.findAll().map { post -> PostResponseVo.from(post) }
+        return postsRepository.findAll().orEmpty().map { post -> PostResponseVo.from(post) }
     }
 
     @Transactional(readOnly = true)
     override fun getPost(postId: Long): PostResponseVo {
-        return PostResponseVo.from(postsRepository.findById(postId).get())
+        val post = postsRepository.findById(postId) ?: throw NoSuchElementException("결과 없음")
+        return PostResponseVo.from(post)
     }
 
     @Transactional
